@@ -27,13 +27,17 @@ public class ConstructorPets {
      Mascota p = new Mascota();
      Collections.sort(mascotaArrayList);
 
-    if (mascotaArrayList.size()== 0){
-        insertarCincoPets(db);
-    }
+        //primera vez creo en la base de datos los datos
+        if (mascotaArrayList.size()== 0){
+            insertarCincoPets(db);
+            //y los extraigo extraigo los datos.
+            mascotaArrayList = db.obtenerTodosPets();
+        }
 
 
 
-    return mascotaArrayList;
+
+        return mascotaArrayList;
     }
 
     public void insertarCincoPets(BaseDatos db){
